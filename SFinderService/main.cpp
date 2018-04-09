@@ -3,11 +3,18 @@
 #include <string>
 #include <Windows.h>
 
+
+/*
+limitations
+- dll may be load without LoadLibrary, and we don't see it
+- system may affected by rootkit that hide present from the system
+- out application may be infected and functions called from loaded DLL may be interecebed
+*/
 using namespace std;
 
-constexpr wchar_t LOG_NAME[]{L"sfinder.log"};
+constexpr wchar_t LOG_NAME[]{L"%TEMP%\sfinder.log"};
 
-#define LOG(message)  		fstream fs(LOG_NAME, fstream::out | fstream::app); fs << message << endl; fs.close()
+#define LOG(message)  		{fstream fs(LOG_NAME, fstream::out | fstream::app); fs << message << endl; fs.close();}
 
 wchar_t SERVICE_NAME[] { L"Suspicious Finder Service" };
 
@@ -19,6 +26,7 @@ VOID WINAPI ServiceCtrlHandler(DWORD dwControl);
 
 int wmain (int argc, char *argv)
 {
+
 	SERVICE_TABLE_ENTRY service_table[] = {
 		{SERVICE_NAME, ServiceMain},
 		{nullptr, nullptr}
@@ -64,7 +72,7 @@ VOID WINAPI ServiceMain(DWORD dwArgc, LPTSTR * lpszArgv)
 
 	//truncate log before starting
 	{
-		fstream open(LOG_NAME, fstream::trunc);
+		fstream open(LOG_NAME, fstream::out | fstream::trunc);
 	}
 
 	LOG("Started!");
