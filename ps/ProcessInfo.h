@@ -28,6 +28,8 @@ public:
 
 	DWORD get_pid() const;
 
+	void add_module_failure_info(const std::wstring& checker, const std::wstring& str);
+
 	void add_failure_info(const std::wstring& str);
 
 	std::vector<std::wstring> get_failure_info() const;

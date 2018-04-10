@@ -27,6 +27,11 @@ DWORD ProcessInfo::get_pid() const {
 	return _pid;
 }
 
+void ProcessInfo::add_module_failure_info(const std::wstring& checker, const std::wstring& str)
+{
+	_failure_info.emplace_back(L"Rule: " + checker + L", failed module: " + str);
+}
+
 void ProcessInfo::add_failure_info(const wstring& str) {
 	_failure_info.emplace_back(str);
 }

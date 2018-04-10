@@ -33,10 +33,10 @@ namespace process_info {
 			return;
 		}
 
-		//loading collection
+		//filling collection
 		do {
+			wcscpy_s(me32.szExePath, CharLower(me32.szExePath));
 			vec.emplace_back(move(me32));
-
 		} while (Module32Next(hModuleSnap, &me32));
 
 		CloseHandle(hModuleSnap);

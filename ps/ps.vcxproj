@@ -148,6 +148,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="custom_exception.h" />
+    <ClInclude Include="DummyChecker.h" />
+    <ClInclude Include="InstallationChecker.h" />
+    <ClInclude Include="installation_info.h" />
+    <ClInclude Include="IProcessChecker.h" />
     <ClInclude Include="ProcessInfo.h" />
     <ClInclude Include="process_info.h" />
     <ClInclude Include="stdafx.h" />
@@ -155,6 +159,7 @@
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="InstallationChecker.cpp" />
     <ClCompile Include="ProcessInfo.cpp" />
     <ClCompile Include="ps.cpp" />
     <ClCompile Include="stdafx.cpp">
