@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "InstallationChecker.h"
+#include "TrustedFolderChecker.h"
 #include "Shlwapi.h"
 
 #pragma comment(lib, "shlwapi.lib")

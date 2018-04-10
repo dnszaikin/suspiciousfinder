@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A5FA0E41-FB03-45C2-A278-DEF7B750FAD8}</ProjectGuid>
+    <ProjectGuid>{854855AE-D3D5-4494-A37E-317F111DD007}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ps</RootNamespace>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -147,24 +147,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="custom_exception.h" />
-    <ClInclude Include="DummyChecker.h" />
-    <ClInclude Include="SignatureChecker.h" />
-    <ClInclude Include="signature_info.h" />
-    <ClInclude Include="TrustedFolderChecker.h" />
-    <ClInclude Include="installation_info.h" />
-    <ClInclude Include="IProcessChecker.h" />
-    <ClInclude Include="ProcessInfo.h" />
-    <ClInclude Include="process_info.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TrustedFolderChecker.cpp" />
-    <ClCompile Include="ProcessInfo.cpp" />
-    <ClCompile Include="ps.cpp" />
-    <ClCompile Include="SignatureChecker.cpp" />
+    <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

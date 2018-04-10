@@ -39,10 +39,16 @@
     <ClInclude Include="DummyChecker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InstallationChecker.h">
+    <ClInclude Include="installation_info.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="installation_info.h">
+    <ClInclude Include="TrustedFolderChecker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="signature_info.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SignatureChecker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,7 +62,10 @@
     <ClCompile Include="ProcessInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InstallationChecker.cpp">
+    <ClCompile Include="TrustedFolderChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SignatureChecker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
