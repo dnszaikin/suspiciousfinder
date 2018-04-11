@@ -3,6 +3,7 @@
 #include <tlhelp32.h>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 class ProcessInfo {
 private:
@@ -13,6 +14,9 @@ private:
 	std::vector<MODULEENTRY32W> _modules_information;
 	std::vector<std::wstring> _failure_info;
 
+	//key is index from _modules_information
+	std::unordered_map<size_t, std::wstring> _modules_failure;
+
 public:
 
 	ProcessInfo() = delete;
@@ -20,7 +24,7 @@ public:
 
 	ProcessInfo(ProcessInfo&&) = default;
 
-	ProcessInfo(DWORD pid, std::wstring&& exe_name, std::wstring&& exe_path, std::vector<MODULEENTRY32W>&& modules);
+	ProcessInfo(DWORD pid, std::wstring&& exe_name, std::wstring&& exe_path, std::vector<MODULEENTRY32W>&& modules) noexcept;
 
 	virtual ~ProcessInfo();
 

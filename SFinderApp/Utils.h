@@ -33,6 +33,10 @@ namespace utils {
 
 	static std::wstring format_error_wstr(DWORD err)
 	{
+		if (err == ERROR_SUCCESS) {
+			return L"Unknown";
+		}
+
 		wchar_t* msgbuf = NULL;
 
 		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,

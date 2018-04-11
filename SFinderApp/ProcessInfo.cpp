@@ -1,16 +1,17 @@
 #include "stdafx.h"
+#include <iostream>
 #include "ProcessInfo.h"
+#include "custom_exception.h"
 
 using namespace std;
 
-ProcessInfo::ProcessInfo(DWORD pid, wstring&& exe_name, wstring&& exe_path, vector<MODULEENTRY32W>&& modules) :
+ProcessInfo::ProcessInfo(DWORD pid, wstring&& exe_name, wstring&& exe_path, vector<MODULEENTRY32W>&& modules) noexcept :
 	_pid(pid),
 	_exe_name(move(exe_name)),
 	_exe_path(move(exe_path)),
 	_modules_information(move(modules)),
 	_failure_info({})
 {
-
 }
 
 ProcessInfo::~ProcessInfo()
