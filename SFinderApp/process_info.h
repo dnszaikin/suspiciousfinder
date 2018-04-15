@@ -9,8 +9,6 @@
 #include "custom_exception.h"
 #include "ProcessInfo.h"
 
-using namespace std;
-
 namespace process_info {
 
 	//return list of loaded modules for specified dwPID
@@ -36,8 +34,8 @@ namespace process_info {
 
 		//filling collection
 		do {
-			wcscpy_s(me32.szExePath, CharLower(me32.szExePath));
-			vec.emplace_back(move(me32));
+			CharLower(me32.szExePath);
+			vec.emplace_back(std::move(me32));
 		} while (Module32Next(hModuleSnap, &me32));
 
 		CloseHandle(hModuleSnap);
@@ -66,10 +64,10 @@ namespace process_info {
 			}
 
 			do {
-				vector<MODULEENTRY32W> vec;
-				wstring exe_path{};
-				wstring exe_name_module{};
-				wstring exe_name(pe32.szExeFile);
+				std::vector<MODULEENTRY32W> vec;
+				std::wstring exe_path{};
+				std::wstring exe_name_module{};
+				std::wstring exe_name(pe32.szExeFile);
 
 				ListProcessModules(pe32.th32ProcessID, vec);
 
@@ -90,7 +88,7 @@ namespace process_info {
 
 				auto pi = ProcessInfo(pe32.th32ProcessID, move(exe_name_module), move(exe_path), move(vec));
 
-				process_info.emplace_back(move(pi));
+				process_info.emplace_back(std::move(pi));
 
 			} while (Process32Next(hProcessSnap, &pe32));
 

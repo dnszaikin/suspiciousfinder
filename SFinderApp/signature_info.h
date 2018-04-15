@@ -172,7 +172,7 @@ namespace sing_info {
 				// The UI was disabled in dwUIChoice or the admin policy 
 				// has disabled user trust. lStatus contains the 
 				// publisher or time stamp chain error.
-				info = L"Error is: " + lStatus;
+				info = source_file + L" check error: " + utils::format_error_wstr(lStatus);
 				break;
 			}
 
@@ -185,11 +185,11 @@ namespace sing_info {
 				&WinTrustData);
 		}		
 		catch (const std::exception& e) {
-			info = L"Error: " + utils::string_to_wide(e.what());
+			info = source_file + L" check error: " + utils::string_to_wide(e.what());
 			std::wcerr << info <<  std::endl;
 		}
 		catch (...) {
-			info = L"Error: " + utils::format_error_wstr(GetLastError());
+			info = source_file + L" check error: " + utils::format_error_wstr(GetLastError());
 			std::wcerr << info << std::endl;
 		}
 

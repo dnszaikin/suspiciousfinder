@@ -15,10 +15,15 @@ SignatureChecker::~SignatureChecker()
 bool SignatureChecker::check_process(ProcessInfo& process) const {
 	wstring info;
 
-	bool result = sing_info::VerifyEmbeddedSignature(process.get_exe_path(), info);
+	bool result = false;
 
-	if (!result) {
-		process.add_module_failure_info(get_rule_name(), move(info));
+	for (auto&& module : process.get_modules()) {
+
+		result = sing_info::VerifyEmbeddedSignature(module.szExePath, info);
+
+		if (!result) {
+			process.add_module_failure_info(get_rule_name(), move(info));
+		}
 	}
 
 	return !result;
